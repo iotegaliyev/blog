@@ -14,12 +14,28 @@ public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name = "header", nullable = false)
-    private String header;
-    @Column(name = "text", nullable = false)
-    private String text;
-    @Column(name = "author", nullable = false)
-    private String author;
+
+    @Column(name = "header_eng", nullable = false)
+    private String headerEng;
+    @Column(name = "header_ru", nullable = false)
+    private String headerRu;
+    @Column(name = "header_kk", nullable = false)
+    private String headerKk;
+
+    @Column(name = "text_eng", nullable = false, columnDefinition = "TEXT")
+    private String textEng;
+    @Column(name = "text_ru", nullable = false, columnDefinition = "TEXT")
+    private String textRu;
+    @Column(name = "text_kk", nullable = false, columnDefinition = "TEXT")
+    private String textKk;
+
+    @Column(name = "author_eng", nullable = false)
+    private String authorEng;
+    @Column(name = "author_ru", nullable = false)
+    private String authorRu;
+    @Column(name = "author_kk", nullable = false)
+    private String authorKk;
+
     @Column(name = "createdAt", nullable = false)
     private String createdAt;
     @Column(name = "modifiedAt", nullable = true)

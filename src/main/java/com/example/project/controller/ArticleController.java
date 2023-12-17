@@ -20,24 +20,26 @@ public class ArticleController {
 
     @GetMapping("{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<ArticleDTO> getArticle(@PathVariable("id") int articleId) {
-        return ResponseEntity.ok(articleService.getById(articleId));
+    public ResponseEntity<ArticleDTO> getArticle(@PathVariable("id") int articleId,
+                                                 @RequestParam String locale) {
+        return ResponseEntity.ok(articleService.getById(articleId, locale));
     }
 
-    @PostMapping
+    @PostMapping()
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<ArticleDTO> createArticle(@RequestBody Article article) {
-        ArticleDTO articleDTO = articleService.createArticle(new ArticleDTO(article.getHeader(), article.getText(), article.getAuthor()));
+    public ResponseEntity<Article> createArticle(@RequestBody Article article) {
+        articleService.createArticle(article);
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(articleDTO);
+                .body(article);
     }
 
     @GetMapping()
     public ResponseEntity<ArticleResponse> getAllArticles(@RequestParam int pageNo,
                                                           @RequestParam int pageSize,
                                                           @RequestParam String sortBy,
-                                                          @RequestParam String sortOrder) {
-        return ResponseEntity.status(HttpStatus.OK).body(articleService.getAllArticles(pageNo, pageSize, sortBy, sortOrder));
+                                                          @RequestParam String sortOrder,
+                                                          @RequestParam String locale) {
+        return ResponseEntity.status(HttpStatus.OK).body(articleService.getAllArticles(pageNo, pageSize, sortBy, sortOrder, locale));
     }
 
     @DeleteMapping("{id}")
@@ -48,8 +50,8 @@ public class ArticleController {
 
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void updateArticle(@PathVariable("id") Long articleId, @RequestBody ArticleDTO articleDTO) {
-        articleService.updateArticle(articleId, articleDTO);
+    public void updateArticle(@PathVariable("id") Long articleId, @RequestBody Article article) {
+        articleService.updateArticle(articleId, article);
     }
 
     @GetMapping("/search")

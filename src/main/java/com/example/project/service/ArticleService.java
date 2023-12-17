@@ -7,15 +7,15 @@ import com.example.project.model.Article;
 import java.util.List;
 
 public interface ArticleService {
-    ArticleResponse getAllArticles(int pageNo, int pageSize, String sortBy, String sortOrder);
+    ArticleResponse getAllArticles(int pageNo, int pageSize, String sortBy, String sortOrder, String locale);
 
     List<Article> searchArticlesByHeader(String keyword);
 
-    ArticleDTO getById(long id);
+    ArticleDTO getById(long id, String locale);
 
-    ArticleDTO createArticle(ArticleDTO a);
+    Article createArticle(Article a);
 
     void deleteById(long id);
 
-    void updateArticle(long id, ArticleDTO articleDTO);
+    void updateArticle(long id, Article article);
 }
