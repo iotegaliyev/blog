@@ -1,9 +1,9 @@
-package com.example.project.controller;
+package com.example.project.controllers;
 
 import com.example.project.DTO.ArticleDTO;
 import com.example.project.DTO.ArticleResponse;
-import com.example.project.model.Article;
-import com.example.project.service.ArticleService;
+import com.example.project.models.Article;
+import com.example.project.security.services.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,8 +1,8 @@
-package com.example.project.service;
+package com.example.project.security.services;
 
 import com.example.project.DTO.ArticleDTO;
 import com.example.project.DTO.ArticleResponse;
-import com.example.project.model.Article;
+import com.example.project.models.Article;
 
 import java.util.List;
 

@@ -1,11 +1,10 @@
-package com.example.project.service.impl;
+package com.example.project.security.services;
 
 import com.example.project.DTO.ArticleDTO;
-import com.example.project.service.ArticleService;
 import com.example.project.DTO.ArticleResponse;
 import com.example.project.exception.ResourceNotFoundException;
-import com.example.project.model.Article;
-import com.example.project.repository.ArticleRepo;
+import com.example.project.models.Article;
+import com.example.project.repository.ArticleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -21,7 +20,7 @@ import java.util.stream.Collectors;
 @Service
 public class ArticleServiceImpl implements ArticleService {
     @Autowired
-    private ArticleRepo articleRepo;
+    private ArticleRepository articleRepo;
 
     @Override
     public ArticleResponse getAllArticles(int pageNo, int pageSize, String sortBy, String sortOrder, String locale) {
